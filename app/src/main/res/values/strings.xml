@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">schedule wake on lan <br />to all devices listed below</string>
+    <string name="send_wake_on_lan_to_all_computers_listed_below">Send Wake-On-LAN <br/>To ALL Computers Listed Below</string>
+    <string name="about_this_phone">About this phone</string>
+    <string name="database_file_was_not_there_now_a_new_database_file_created">database file was not there. now a new database file created.<br /> In this database you will be able to save a list of MAC addresses to wake them up</string>
+    <string name="computer_name">Computer name:</string>
+    <string name="enter_here_a_computer_name">Enter here a computer name</string>
+    <string name="mac_address">Mac address:</string>
+    <string name="enter_here_a_mac_address">Enter here a MAC address</string>
+    <string name="add_new_mac_address">Add New MAC Address</string>
+    <string name="mac_addresses_list_editor">MAC addresses list editor</string>
+    <string name="wake_on_lan_packets_were_sent_successfully">Wake-on-LAN packets were sent successfully."</string>
+    <string name="failed_to_send_wake_on_lan_packets">Failed to send Wake-on-LAN packets. Please check your connection, be it WiFi or cable. </string>
+    <string name="wake_up">wake up</string>
+    <string name="mac_address_list_editor">MAC Address List Editor</string>
+    <string name="please_fill_both_the_computer_name_and_the_mac_address">please fill both the computer name and the mac address</string>
+    <string name="the_input_is_not_a_mac_address">Error! The input is not a MAC address.<br/> MAC address format is similar to either 3D:F2:C9:A6:B3:4F OR 3D-F2-C9-A6-B3-4F  </string>
+    <string name="delete">delete</string>
+</resources>
