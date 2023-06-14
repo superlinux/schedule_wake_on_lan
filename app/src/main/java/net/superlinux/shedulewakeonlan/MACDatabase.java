@@ -4,35 +4,30 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ScrollView;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MACDatabase {
     @SuppressLint("Range")
             SQLiteDatabase database;
             Context this_context;
-            ScrollView this_scrollView;
+
     MACDatabase(Context mcontext){
         this_context=mcontext;
 
-        String database_table_creation_query="";
+        //String database_table_creation_query="";
         try  {
             File database_file = new File(mcontext.getFilesDir().getPath()+File.pathSeparator+"mac_addresses.db");
             if (!database_file.exists()) {
                 database_file.createNewFile();
+
                 Toast.makeText(this_context,R.string.database_file_was_not_there_now_a_new_database_file_created,Toast.LENGTH_LONG).show();
                 //Snackbar.make(this.getApplicationContext().get,R.string.database_file_was_not_there_now_a_new_database_file_created,Snackbar.LENGTH_LONG).show();
             }
             database=SQLiteDatabase.openOrCreateDatabase(database_file.getPath(),null);
-            database_table_creation_query="create table if not exists mac_addresses_list (computer_name text, mac_address text); ";
+          String  database_table_creation_query="create table if not exists mac_addresses_list (computer_name text, mac_address text); ";
             database.execSQL(database_table_creation_query);
 
             //Toast.makeText(this, Environment.getDataDirectory().toString(), Toast.LENGTH_SHORT).show();
@@ -51,9 +46,9 @@ public class MACDatabase {
 
         Cursor cursor = database.rawQuery(query_all_mac_adresses,null);
 
-
+        String computer_name="",mac_address="";
         if (cursor.getCount()>0) {
-            String computer_name="",mac_address="";
+
             while(cursor.moveToNext()){
                 computer_name=cursor.getString(cursor.getColumnIndex("computer_name"));
                 mac_address=cursor.getString(cursor.getColumnIndex("mac_address"));
@@ -62,6 +57,7 @@ public class MACDatabase {
 
             }
         }
+        cursor.close();
         return dataSet;
     }
     void add_new_mac_address(String computer_name,String mac_address){
@@ -72,4 +68,5 @@ public class MACDatabase {
         String database_delete_single_mac_address_query="delete from mac_addresses_list where mac_address='"+p_mac_address+"'";
         database.execSQL(database_delete_single_mac_address_query);
     }
+
 }

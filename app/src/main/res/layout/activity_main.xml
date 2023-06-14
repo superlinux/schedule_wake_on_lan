@@ -22,15 +22,12 @@
         android:layout_height="wrap_content"
         android:text="@string/mac_address_list_editor"/>
     <Button
-        android:id="@+id/send_wake_on_lan_button"
+        android:id="@+id/send_wake_on_lan_to_all_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/send_wake_on_lan_to_all_computers_listed_below"
         />
 
-    <TableRow android:weightSum="100">
-
-    </TableRow>
 
         <ListView android:id="@+id/mac_addresses_table_listview"
             android:layout_width="match_parent"

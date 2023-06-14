@@ -1,26 +1,22 @@
 package net.superlinux.shedulewakeonlan;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class MacAddressesListEditor extends AppCompatActivity {
 ListView mac_addresses_listview;
 EditText computer_name_edittext,mac_address_edittext;
 Button add_new_mac_address_button;
-ScrollView mac_addresses_table_scrollview;
+//ScrollView mac_addresses_table_scrollview;
 MACDatabase database;
 ArrayList<DataModel> dataSet;
 CustomListViewAdapter adapter;
@@ -69,4 +65,12 @@ CustomListViewAdapter adapter;
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MacAddressesListEditor.this, MainActivity.class);
+        startActivity(intent);
+
+        super.onBackPressed();
+        finish();
+    }
 }
